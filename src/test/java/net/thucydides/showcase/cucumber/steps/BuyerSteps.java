@@ -1,5 +1,6 @@
 package net.thucydides.showcase.cucumber.steps;
 
+import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.BlurScreenshots;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Step;
@@ -34,6 +35,7 @@ public class BuyerSteps extends ScenarioSteps {
     @Title("BlurScreenshots = LIGHT")
     @BlurScreenshots(BlurLevel.LIGHT)
     public void searches_by_keyword(String keyword) {
+        Serenity.takeScreenshot();
         homePage.enterSearchTerms(keyword);
         homePage.search();
         homePage.dismissLocationMessage();
@@ -42,6 +44,7 @@ public class BuyerSteps extends ScenarioSteps {
     @Step
     @Issue("#NO-97")
     public void should_see_results_summary_containing(String keyword) {
+        Serenity.takeScreenshot();
         assertThat(searchResultsPage.getSearchHeader()).containsIgnoringCase(keyword);
     }
 

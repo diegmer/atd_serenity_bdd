@@ -7,8 +7,9 @@ Feature: Add a new pet
 
   Scenario: Add a dog
     Given I have the following pet
-    | name | status    |
-    | Fido | available |
+      | name   | status    |
+      | Floki  | available |
+      | Ragnar | available |
     When I add the pet to the store
     Then the pet should be available in the store
     And I get status code 200

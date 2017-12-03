@@ -24,7 +24,7 @@ public class HomePage extends PageObject {
 
     public HomePage(WebDriver driver) {
         super(driver);
-        driver.manage().window().maximize();
+        //driver.manage().window().maximize();
     }
 
     public void enterSearchTerms(String keyword) {
