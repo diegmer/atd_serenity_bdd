@@ -11,22 +11,23 @@ Feature: Search by keyword
     Given I want to buy a wool scarf
     When I search for 'wool'
     Then I should see only articles related to 'wool'
+    And I view a pop up
 
   #FAIL
   Scenario Outline: Search by shop name
     Given I want to see articles from a particular shop
     When I search by shop for '<shopname>'
     Then I should find 1 shop called '<shopname>'
-  Examples:
-    | shopname      |
-    | SwankySips    |
+    Examples:
+      | shopname   |
+      | SwankySips |
 #    | mymagicname   |
 
   Scenario Outline: Search for many articles by keyword
     Given I would like to buy a <article>
     When I search for '<article>'
     Then I should see only articles related to '<keyword>'
-  Examples:
-    | article        | keyword |
-    | wool scarf     | wool    |
+    Examples:
+      | article    | keyword |
+      | wool scarf | wool    |
 #    | cotton shirt   | cotton  |

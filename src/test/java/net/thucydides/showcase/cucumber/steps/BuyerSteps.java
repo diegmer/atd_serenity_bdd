@@ -23,7 +23,8 @@ public class BuyerSteps extends ScenarioSteps {
     ListingPage listingPage;
     CartPage cartPage;
 
-    @Step
+    //@Step
+    @Step("Open Web Etsy")
     public void opens_home_page() {
         homePage.open();
     }
@@ -78,7 +79,7 @@ public class BuyerSteps extends ScenarioSteps {
     @Step
     public void should_see_item_in_cart(ListingItem selectedItem) {
         assertThat(cartPage.getOrderCostSummaries()
-                        .stream().anyMatch(order -> order.getName().equals(selectedItem.getName()))).isTrue();
+                .stream().anyMatch(order -> order.getName().equals(selectedItem.getName()))).isTrue();
     }
 
     @Step

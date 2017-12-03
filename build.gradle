@@ -63,6 +63,7 @@ dependencies {
 
 }
 
+//A typical use case is to run the tests and to always produce the aggregate report, no matter what the test results are
 gradle.startParameter.continueOnFailure = true
 
 test {
