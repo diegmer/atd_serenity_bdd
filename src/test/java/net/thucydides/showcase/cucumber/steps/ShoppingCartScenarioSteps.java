@@ -6,7 +6,7 @@ import cucumber.api.java.en.When;
 import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.showcase.cucumber.model.ListingItem;
-import net.thucydides.showcase.cucumber.steps.serenity.BuyerSteps;
+import net.thucydides.showcase.cucumber.steps.BuyerSteps;
 
 import static net.thucydides.showcase.cucumber.model.SessionVariables.SELECTED_LISTING;
 

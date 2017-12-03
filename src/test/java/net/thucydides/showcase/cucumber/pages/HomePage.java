@@ -12,20 +12,26 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
-@DefaultUrl("https://www.etsy.com")
+@DefaultUrl("https://www.etsy.com/es")
 public class HomePage extends PageObject {
 
-    @FindBy(xpath="//form[@id='search-bar']//button[@type='submit']")
+    //@FindBy(xpath="//form[@id='gnav-search']//button[@type='submit']")
+    @FindBy(css="button[class='btn btn-primary']")
     WebElementFacade searchButton;
 
     private final static String SHOP_SUGGESTION = "//div[@id='search-suggestions']//div[@class='as-suggestion']//*[contains(.,'find shop names containing')]";
     private final static String SHOP_SUGGESTION_SHOP_NAME = "//div[@id='search-suggestions']//div[@class='as-suggestion']/span[2]";
-    
+
+    public HomePage(WebDriver driver) {
+        super(driver);
+        driver.manage().window().maximize();
+    }
+
     public void enterSearchTerms(String keyword) {
     	$("#search-query").type(keyword);
-        new WebDriverWait(getDriver(),1).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(SHOP_SUGGESTION)));
+        //new WebDriverWait(getDriver(),1).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(SHOP_SUGGESTION)));
         //withTimeoutOf(10, TimeUnit.SECONDS).waitForPresenceOf(By.xpath(SHOP_SUGGESTION));
-        waitForKeywordToBeUpdatedTo(keyword);
+        //waitForKeywordToBeUpdatedTo(keyword);
     }
 
     private void waitForKeywordToBeUpdatedTo(String keyword) {

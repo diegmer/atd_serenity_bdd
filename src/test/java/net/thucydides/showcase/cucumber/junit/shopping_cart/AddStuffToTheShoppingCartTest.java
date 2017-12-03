@@ -3,7 +3,7 @@ package net.thucydides.showcase.cucumber.junit.shopping_cart;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.*;
 import net.thucydides.showcase.cucumber.model.ListingItem;
-import net.thucydides.showcase.cucumber.steps.serenity.BuyerSteps;
+import net.thucydides.showcase.cucumber.steps.BuyerSteps;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;

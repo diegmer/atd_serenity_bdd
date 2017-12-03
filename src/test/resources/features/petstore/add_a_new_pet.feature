@@ -1,4 +1,5 @@
 @version:Release-2
+@rest
 Feature: Add a new pet
   In order to sell a pet
   As a store owner
@@ -10,3 +11,4 @@ Feature: Add a new pet
     | Fido | available |
     When I add the pet to the store
     Then the pet should be available in the store
+    And I get status code 200

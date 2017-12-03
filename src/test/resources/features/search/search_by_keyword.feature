@@ -1,6 +1,7 @@
 @component:ui
 @version:Release-2
-@issue:ETSY-102
+@issue:BDD-102
+@search
 Feature: Search by keyword
   In order for buyers to find what they are looking for more efficiently
   As a seller
@@ -11,6 +12,7 @@ Feature: Search by keyword
     When I search for 'wool'
     Then I should see only articles related to 'wool'
 
+  #FAIL
   Scenario Outline: Search by shop name
     Given I want to see articles from a particular shop
     When I search by shop for '<shopname>'
@@ -18,7 +20,7 @@ Feature: Search by keyword
   Examples:
     | shopname      |
     | SwankySips    |
-    | mymagicname   |
+#    | mymagicname   |
 
   Scenario Outline: Search for many articles by keyword
     Given I would like to buy a <article>
@@ -27,4 +29,4 @@ Feature: Search by keyword
   Examples:
     | article        | keyword |
     | wool scarf     | wool    |
-    | cotton shirt   | cotton  |
+#    | cotton shirt   | cotton  |

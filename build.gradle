@@ -1,25 +1,24 @@
 buildscript {
 	repositories {
-		//jcenter()
 		maven {
 			url "http://central.maven.org/maven2"
 		}
 	}
 	dependencies {
-		classpath("net.serenity-bdd:serenity-gradle-plugin:1.1.1")
+		classpath("net.serenity-bdd:serenity-gradle-plugin:1.2.4")
 	}
 }
 
 apply plugin: 'java'
+apply plugin: 'idea'
 apply plugin: 'net.serenity-bdd.aggregator'
 
-def cucumberVersion = "1.2.5"
-def serenityVersion = "1.1.1"
+def cucumberVersion = "1.1.28"
+def serenityVersion = "1.2.4"
 
 repositories {
-	//jcenter()
-	maven{
-		url "http://central.maven.org/maven2/"
+	maven {
+		url "http://central.maven.org/maven2"
 	}
 }
 
@@ -28,27 +27,28 @@ configurations {
 		extendsFrom testRuntime
 	}
 }
-
-task cucumber() {
-	dependsOn assemble
-	doLast {
-		javaexec {
-			main = "cucumber.api.cli.Main"
-			classpath = configurations.cucumberRuntime
-			args = ['--plugin', 'pretty', '--glue', 'src/test/java', 'src/test/resources/features/petstore']
-
-		}
-	}
-}
+//
+//task cucumber() {
+//	dependsOn assemble
+//	doLast {
+//		javaexec {
+//			main = "cucumber.api.cli.Main"
+//			classpath = configurations.cucumberRuntime
+//			args = ['--plugin', 'pretty', '--glue', 'src/test/java', 'src/test/resources/features/petstore']
+//
+//		}
+//	}
+//}
 
 //Ensure the cucumber tests are executed as part of the build. Makes for a very pretty output.
-build.dependsOn cucumber
+//build.dependsOn cucumber
 
 dependencies {
 	compile "net.serenity-bdd:serenity-core:$serenityVersion"
-	compile "net.serenity-bdd:serenity-cucumber:$serenityVersion"
-	compile("net.serenity-bdd:serenity-rest-assured:$serenityVersion")
-
+	compile "net.serenity-bdd:serenity-cucumber:$cucumberVersion"
+	//compile("net.serenity-bdd:serenity-rest-assured:$serenityVersion")
+    compile 'io.rest-assured:rest-assured:3.0.1'
+    compile 'net.serenity-bdd:serenity-rest-assured:1.2.4'
 
 	cucumberRuntime files("${jar.archivePath}")
 
@@ -59,6 +59,19 @@ dependencies {
 	compile('org.slf4j:slf4j-simple:1.7.12')
 	compile 'org.assertj:assertj-core:3.1.0'
 	compile 'org.codehaus.groovy:groovy-all:2.3.10'
+
+
 }
 
 gradle.startParameter.continueOnFailure = true
+
+test {
+	systemProperties System.getProperties()
+	test.reports.getHtml().enabled = false
+	test.testLogging.showStandardStreams = true
+	test.reports.junitXml.enabled= false
+	include 'net/thucydides/showcase/cucumber/runner/Runner.class'
+}
+
+test.reports.getHtml().enabled = false
+test.reports.junitXml.enabled =false

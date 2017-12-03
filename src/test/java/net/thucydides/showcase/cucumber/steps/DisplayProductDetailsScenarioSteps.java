@@ -7,7 +7,7 @@ import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.showcase.cucumber.model.ListingItem;
 import net.thucydides.showcase.cucumber.pages.HomePage;
-import net.thucydides.showcase.cucumber.steps.serenity.BuyerSteps;
+import net.thucydides.showcase.cucumber.steps.BuyerSteps;
 import static net.thucydides.showcase.cucumber.model.SessionVariables.SELECTED_LISTING;
 import static org.assertj.core.api.Assertions.assertThat;
 

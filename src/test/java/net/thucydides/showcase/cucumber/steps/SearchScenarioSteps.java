@@ -5,7 +5,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.util.Inflector;
-import net.thucydides.showcase.cucumber.steps.serenity.BuyerSteps;
+import net.thucydides.showcase.cucumber.steps.*;
 
 import java.text.ParseException;
 
@@ -44,10 +44,9 @@ public class SearchScenarioSteps {
         buyer.should_see_shop_search_result_summary_of(count, shopName);
     }
 
-    private String pluralized(int count, String word) {
-        return Inflector.getInstance().pluralize(word, count);
-
-    }
+//    private String pluralized(int count, String word) {
+//        return Inflector.getInstance().pluralize(word, count);
+//    }
 }
 
 
