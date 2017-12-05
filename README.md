@@ -5,12 +5,14 @@ A simple example of some BDD-style automated acceptance criteria, running agains
 Run the tests like this:
 
 ```
-mvn clean verify
+gradle clean test aggregate
 ```
 
-By default, the tests run with PhantomJS, so you will need this installed. Otherwise, if you prefer Firefox, modify the serenity.properties file or run the tests like this:
+By default, the tests run with Chrome, so you will need this installed. Otherwise, if you prefer Explorer, modify the serenity.properties file:
 ```
-mvn clean verify -Dwebdriver.driver=firefox
+webdriver.driver = chrome
+webdriver.driver = iexplorer
+webdriver.chrome.driver = C:\\tools\\chromedriver.exe
 ```
 
 The reports will be generated in `target/site/serenity`.
