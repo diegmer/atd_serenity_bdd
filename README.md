@@ -1,4 +1,5 @@
-## Automated web tests using Serenity, Cucumber and Maven
+## Going into Serenity BDD
+## Automated web tests using Serenity, Cucumber and Gradle
 
 A simple example of some BDD-style automated acceptance criteria, running against http://etsy.com. 
 
@@ -8,7 +9,7 @@ Run the tests like this:
 gradle clean test aggregate
 ```
 
-By default, the tests run with Chrome, so you will need this installed. Otherwise, if you prefer Explorer, modify the serenity.properties file:
+By default, the tests run with Chrome, so you will need this installed. Otherwise, if you prefer Explorer :(, modify the serenity.properties file:
 ```
 webdriver.driver = chrome
 webdriver.driver = iexplorer
